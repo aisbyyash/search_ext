@@ -9,7 +9,7 @@ define([
 
     return Component.extend({
         defaults: {
-            template: 'Vendor_SmartSearch/autocomplete',
+            template: 'Vendor_SmartSearch/template/autocomplete',
             searchFieldSelector: '#search',
             minQueryLength: 2,
             debounceTime: 300,
@@ -85,6 +85,7 @@ define([
             
             // Handle focus on search field
             searchField.on('focus', function() {
+                console.log("Getting here");
                 var query = self.searchQuery();
                 if (query.length > 0 || self.showPopularSearches) {
                     self.activeResults(true);
