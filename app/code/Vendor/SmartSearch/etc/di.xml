@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <!-- API interfaces -->
+    <preference for="Vendor\SmartSearch\Api\SearchServiceInterface" type="Vendor\SmartSearch\Model\SearchService"/>
+    <preference for="Vendor\SmartSearch\Api\Data\SearchConfigInterface" type="Vendor\SmartSearch\Model\Config"/>
+    <preference for="Vendor\SmartSearch\Api\Data\SearchResultInterface" type="Vendor\SmartSearch\Model\SearchResult"/>
+    <preference for="Vendor\SmartSearch\Api\Data\SearchQueryInterface" type="Vendor\SmartSearch\Model\SearchQuery"/>
+    
+    <!-- Plugin to log search terms -->
+    <type name="Magento\Search\Controller\Term\Popular">
+        <plugin name="smartsearch_log_search_term" type="Vendor\SmartSearch\Plugin\SearchTermLogPlugin" sortOrder="10" disabled="false" />
+    </type>
+    
+    <!-- Plug into the default search -->
+    <type name="Magento\Search\Controller\Ajax\Suggest">
+        <plugin name="smartsearch_ajax_suggest" type="Vendor\SmartSearch\Plugin\AjaxSuggestPlugin" sortOrder="10" disabled="false" />
+    </type>
+</config>

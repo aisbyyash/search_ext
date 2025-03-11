@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<routes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Webapi:etc/webapi.xsd">
+    <route url="/V1/smartsearch/query" method="POST">
+        <service class="Vendor\SmartSearch\Api\SearchServiceInterface" method="search"/>
+        <resources>
+            <resource ref="anonymous"/>
+        </resources>
+    </route>
+    <route url="/V1/smartsearch/popular-searches" method="GET">
+        <service class="Vendor\SmartSearch\Api\SearchServiceInterface" method="getPopularSearches"/>
+        <resources>
+            <resource ref="anonymous"/>
+        </resources>
+    </route>
+    <route url="/V1/smartsearch/trending-products" method="GET">
+        <service class="Vendor\SmartSearch\Api\SearchServiceInterface" method="getTrendingProducts"/>
+        <resources>
+            <resource ref="anonymous"/>
+        </resources>
+    </route>
+</routes>

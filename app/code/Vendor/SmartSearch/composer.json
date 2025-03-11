@@ -1,0 +1,28 @@
+{
+    "name": "vendor/module-smart-search",
+    "description": "Advanced search functionality for Magento 2 with NLP capabilities",
+    "type": "magento2-module",
+    "version": "1.0.0",
+    "license": [
+        "OSL-3.0",
+        "AFL-3.0"
+    ],
+    "require": {
+        "php": "~7.4.0||~8.1.0",
+        "magento/framework": "103.0.*",
+        "magento/module-catalog": "104.0.*",
+        "magento/module-catalog-search": "102.0.*",
+        "magento/module-search": "101.1.*",
+        "magento/module-store": "101.1.*",
+        "magento/module-cms": "104.0.*",
+        "elasticsearch/elasticsearch": "~7.0"
+    },
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "Vendor\\SmartSearch\\": ""
+        }
+    }
+}

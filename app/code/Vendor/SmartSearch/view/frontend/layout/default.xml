@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+        <css src="Vendor_SmartSearch::css/smartsearch.css"/>
+    </head>
+    <body>
+        <referenceContainer name="header-wrapper">
+            <block name="smartsearch.autocomplete" 
+                   template="Vendor_SmartSearch::autocomplete.phtml" 
+                   class="Vendor\SmartSearch\Block\Autocomplete" 
+                   after="top.search"/>
+        </referenceContainer>
+    </body>
+</page>

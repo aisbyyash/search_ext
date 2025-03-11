@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <smartsearch>
+            <general>
+                <enabled>1</enabled>
+                <min_query_length>2</min_query_length>
+                <max_results>10</max_results>
+                <debounce_time>300</debounce_time>
+            </general>
+            <display>
+                <display_thumbnails>1</display_thumbnails>
+                <display_price>1</display_price>
+                <display_description>1</display_description>
+                <show_popular_searches>1</show_popular_searches>
+                <show_category_results>1</show_category_results>
+                <max_popular_searches>5</max_popular_searches>
+            </display>
+        </smartsearch>
+    </default>
+</config>

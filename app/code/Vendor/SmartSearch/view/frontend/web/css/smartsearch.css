@@ -1,0 +1,137 @@
+.search-autocomplete {
+    position: absolute;
+    z-index: 1000;
+    overflow: hidden;
+    margin-top: 0;
+    box-sizing: border-box;
+    border: 1px solid #c2c2c2;
+    background: #ffffff;
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.15);
+    display: none;
+    max-height: 500px;
+    overflow-y: auto;
+    width: 100%;
+}
+
+.search-autocomplete.active {
+    display: block;
+}
+
+.smartsearch-loading {
+    display: flex;
+    justify-content: center;
+    padding: 2rem;
+}
+
+.smartsearch-section-title {
+    padding: 10px 15px;
+    font-weight: 600;
+    background-color: #f8f8f8;
+    border-bottom: 1px solid #e8e8e8;
+}
+
+.smartsearch-product-list,
+.smartsearch-category-list,
+.smartsearch-cms-list,
+.smartsearch-popular-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.smartsearch-product-item {
+    display: flex;
+    padding: 10px 15px;
+    border-bottom: 1px solid #f0f0f0;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.smartsearch-product-item:hover {
+    background-color: #f9f9f9;
+}
+
+.smartsearch-product-item .product-image {
+    flex: 0 0 60px;
+    margin-right: 15px;
+}
+
+.smartsearch-product-item .product-image img {
+    max-width: 100%;
+    height: auto;
+}
+
+.smartsearch-product-item .product-info {
+    flex: 1;
+}
+
+.smartsearch-product-item .product-name {
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.smartsearch-product-item .product-price {
+    color: #555;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.smartsearch-product-item .product-description {
+    font-size: 0.85em;
+    color: #777;
+    margin-bottom: 5px;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.smartsearch-product-item .product-out-of-stock {
+    color: #e02b27;
+    font-size: 0.85em;
+}
+
+.smartsearch-category-item,
+.smartsearch-cms-item,
+.smartsearch-popular-item {
+    padding: 8px 15px;
+    border-bottom: 1px solid #f0f0f0;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.smartsearch-category-item:hover,
+.smartsearch-cms-item:hover,
+.smartsearch-popular-item:hover {
+    background-color: #f9f9f9;
+}
+
+.smartsearch-category-item .category-name {
+    font-weight: 600;
+}
+
+.smartsearch-category-item .category-product-count {
+    font-size: 0.85em;
+    color: #777;
+}
+
+.smartsearch-no-results {
+    padding: 20px 15px;
+    text-align: center;
+    color: #777;
+}
+
+/* Mobile specific styles */
+@media only screen and (max-width: 767px) {
+    .search-autocomplete {
+        max-height: 70vh;
+    }
+    
+    .smartsearch-product-item .product-image {
+        flex: 0 0 50px;
+    }
+    
+    .smartsearch-product-item .product-description {
+        display: none;
+    }
+}

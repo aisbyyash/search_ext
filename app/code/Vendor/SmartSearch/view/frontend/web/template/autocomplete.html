@@ -1,0 +1,104 @@
+<div class="block-search">
+    <div class="search-autocomplete" data-bind="visible: activeResults, css: { active: activeResults }">
+        <!-- Loading indicator -->
+        <div class="smartsearch-loading" data-bind="visible: isLoading">
+            <div class="loader">
+                <div class="loading-mask">
+                    <div class="loader">
+                        <img alt="Loading..." src="<?= $block->getViewFileUrl('images/loader-1.gif'); ?>">
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Results section -->
+        <div class="smartsearch-results" data-bind="visible: !isLoading()">
+            
+            <!-- Product Results -->
+            <div class="smartsearch-products" data-bind="visible: productResults().length > 0">
+                <div class="smartsearch-section-title">
+                    <span data-bind="i18n: 'Products'"></span>
+                </div>
+                <ul class="smartsearch-product-list">
+                    <!-- ko foreach: productResults -->
+                    <li class="smartsearch-product-item" data-bind="click: function() { $parent.goToProductUrl(url) }">
+                        <!-- ko if: $parent.displayThumbnails -->
+                        <div class="product-image">
+                            <img data-bind="attr: { src: image, alt: name }" />
+                        </div>
+                        <!-- /ko -->
+                        <div class="product-info">
+                            <div class="product-name" data-bind="text: name"></div>
+                            <!-- ko if: $parent.displayPrice -->
+                            <div class="product-price" data-bind="html: price"></div>
+                            <!-- /ko -->
+                            <!-- ko if: $parent.displayDescription -->
+                            <div class="product-description" data-bind="text: description"></div>
+                            <!-- /ko -->
+                            <!-- ko if: inStock === false -->
+                            <div class="product-out-of-stock">
+                                <span data-bind="i18n: 'Out of stock'"></span>
+                            </div>
+                            <!-- /ko -->
+                        </div>
+                    </li>
+                    <!-- /ko -->
+                </ul>
+            </div>
+            
+            <!-- Category Results -->
+            <div class="smartsearch-categories" data-bind="visible: categoryResults().length > 0">
+                <div class="smartsearch-section-title">
+                    <span data-bind="i18n: 'Categories'"></span>
+                </div>
+                <ul class="smartsearch-category-list">
+                    <!-- ko foreach: categoryResults -->
+                    <li class="smartsearch-category-item" data-bind="click: function() { $parent.goToCategoryUrl(url) }">
+                        <div class="category-name" data-bind="text: name"></div>
+                        <div class="category-product-count">
+                            <span data-bind="text: productCount"></span>
+                            <span data-bind="i18n: 'products'"></span>
+                        </div>
+                    </li>
+                    <!-- /ko -->
+                </ul>
+            </div>
+            
+            <!-- CMS Pages Results -->
+            <div class="smartsearch-cms" data-bind="visible: cmsResults().length > 0">
+                <div class="smartsearch-section-title">
+                    <span data-bind="i18n: 'Pages'"></span>
+                </div>
+                <ul class="smartsearch-cms-list">
+                    <!-- ko foreach: cmsResults -->
+                    <li class="smartsearch-cms-item" data-bind="click: function() { $parent.goToCmsUrl(url) }">
+                        <div class="cms-title" data-bind="text: title"></div>
+                    </li>
+                    <!-- /ko -->
+                </ul>
+            </div>
+            
+            <!-- Popular Searches -->
+            <div class="smartsearch-popular-searches" data-bind="visible: !hasResults() && popularSearches().length > 0 && showPopularSearches">
+                <div class="smartsearch-section-title">
+                    <span data-bind="i18n: 'Popular Searches'"></span>
+                </div>
+                <ul class="smartsearch-popular-list">
+                    <!-- ko foreach: popularSearches -->
+                    <li class="smartsearch-popular-item" data-bind="click: function() { $parent.selectSearchTerm($data) }">
+                        <div class="popular-term" data-bind="text: $data"></div>
+                    </li>
+                    <!-- /ko -->
+                </ul>
+            </div>
+            
+            <!-- No Results Message -->
+            <div class="smartsearch-no-results" data-bind="visible: searchQuery().length >= minQueryLength && !isLoading() && !hasResults() && popularSearches().length === 0">
+                <div class="no-results-message">
+                    <span data-bind="i18n: 'No results found for'"></span>
+                    <strong data-bind="text: searchQuery"></strong>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
